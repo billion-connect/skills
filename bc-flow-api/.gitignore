@@ -1,0 +1,10 @@
+.env
+.env.*
+*.env
+credentials/
+profiles.json
+profiles.json.lock
+.venv/
+venv/
+__pycache__/
+*.pyc

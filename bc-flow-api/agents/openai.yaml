@@ -1,0 +1,4 @@
+interface:
+  display_name: "BillionConnect eSIM / Flow API (English)"
+  short_description: "Order SIM/eSIMs, query prices, usage and after-sales"
+  default_prompt: "Use $bc-flow-api for BillionConnect SIM or eSIM tasks. Establish the test/production environment and target product before executing."

@@ -1,0 +1,11 @@
+#!/bin/sh
+# Resolve the interpreter before invoking Python; no system installation or shell eval.
+script_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd) || exit 2
+for candidate in python3 python "$HOME/.config/bc-flow-api/venv/bin/python"; do
+    if command -v "$candidate" >/dev/null 2>&1 &&
+       "$candidate" -I -c 'import sys; sys.exit(0 if sys.version_info >= (3,9) else 1)' </dev/null >/dev/null 2>&1; then
+        exec "$candidate" "$script_dir/flow_api.py" "$@"
+    fi
+done
+printf '%s\n' 'No working Python 3.9+ found. Install Python from https://www.python.org/downloads/ then rerun this command. keyring will be prepared automatically; no API request was sent.' >&2
+exit 2

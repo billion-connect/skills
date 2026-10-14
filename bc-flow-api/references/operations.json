@@ -1,0 +1,704 @@
+{
+  "F001": {
+    "name": "List covered countries",
+    "mode": "read",
+    "distribution_documented": true,
+    "trade_data_type": "object",
+    "required": [],
+    "example_trade_data": {
+      "salesMethod": "1"
+    },
+    "backend": {
+      "service": "SaleApiService",
+      "method": "querySaleCoverCountrys",
+      "path": "manage-api/src/main/java/com/op/flow/manage/api/service/SaleApiService.java",
+      "line": 2253
+    }
+  },
+  "F002": {
+    "name": "List products",
+    "mode": "read",
+    "distribution_documented": true,
+    "trade_data_type": "object",
+    "required": [],
+    "example_trade_data": {
+      "salesMethod": "1",
+      "language": "1"
+    },
+    "backend": {
+      "service": "SaleApiService",
+      "method": "queryGoodsHandle",
+      "path": "manage-api/src/main/java/com/op/flow/manage/api/service/SaleApiService.java",
+      "line": 2013
+    }
+  },
+  "F003": {
+    "name": "Get product prices",
+    "mode": "read",
+    "distribution_documented": true,
+    "trade_data_type": "object",
+    "required": [],
+    "example_trade_data": {
+      "salesMethod": "1"
+    },
+    "backend": {
+      "service": "SaleApiService",
+      "method": "queryGoodsPrice",
+      "path": "manage-api/src/main/java/com/op/flow/manage/api/service/SaleApiService.java",
+      "line": 2088
+    }
+  },
+  "F004": {
+    "name": "Get pickup points",
+    "mode": "read",
+    "distribution_documented": false,
+    "trade_data_type": "object",
+    "required": [],
+    "example_trade_data": {},
+    "backend": {
+      "service": "SaleApiService",
+      "method": "querySelfPickPointMsg",
+      "path": "manage-api/src/main/java/com/op/flow/manage/api/service/SaleApiService.java",
+      "line": 2346
+    }
+  },
+  "F005": {
+    "name": "List shipping companies",
+    "mode": "read",
+    "distribution_documented": false,
+    "trade_data_type": "object",
+    "required": [],
+    "example_trade_data": {},
+    "backend": {
+      "service": "SaleApiService",
+      "method": "queryLogisticsCompanyMsg",
+      "path": "manage-api/src/main/java/com/op/flow/manage/api/service/SaleApiService.java",
+      "line": 2390
+    }
+  },
+  "F006": {
+    "name": "Create an order including SIM cards",
+    "mode": "write",
+    "distribution_documented": false,
+    "trade_data_type": "object",
+    "required": [
+      "channelOrderId",
+      "subOrderList"
+    ],
+    "example_trade_data": {
+      "channelOrderId": "138788765467",
+      "express": {
+        "userName": "张三",
+        "userPhone": "15888888888",
+        "logisticsCompany": "SF",
+        "province": "北京市",
+        "city": "北京市",
+        "district": "海淀区",
+        "address": "上地信息产业基地创业路6号",
+        "expressFee": "10"
+      },
+      "totalAmount": "128",
+      "discountAmount": "1",
+      "estimatedUseTime": "2017-12-31",
+      "orderCreateTime": "2017-12-12 12:12:12",
+      "comment": "请发顺丰",
+      "subOrderList": [
+        {
+          "channelSubOrderId": "2873987483292",
+          "deviceSkuId": "1535444366670209",
+          "planSkuId": "",
+          "planSkuCopies": "1",
+          "number": "1"
+        }
+      ]
+    },
+    "backend": {
+      "service": "SaleOrderApiService",
+      "method": "createOrderHandle",
+      "path": "manage-api/src/main/java/com/op/flow/manage/api/service/SaleOrderApiService.java",
+      "line": 137
+    }
+  },
+  "F007": {
+    "name": "Create a top-up order",
+    "mode": "write",
+    "distribution_documented": true,
+    "trade_data_type": "object",
+    "required": [
+      "channelOrderId",
+      "subOrderList"
+    ],
+    "example_trade_data": {
+      "channelOrderId": "138788765467",
+      "totalAmount": "128",
+      "orderCreateTime": "2017-12-12 12:12:12",
+      "comment": "",
+      "subOrderList": [
+        {
+          "channelSubOrderId": "2873987483291",
+          "iccid": [
+            "89860012017300000001",
+            "89860012017300000002"
+          ],
+          "skuId": "1273",
+          "copies": "5"
+        }
+      ]
+    },
+    "backend": {
+      "service": "SaleOrderApiService",
+      "method": "createOrderHandle",
+      "path": "manage-api/src/main/java/com/op/flow/manage/api/service/SaleOrderApiService.java",
+      "line": 137
+    }
+  },
+  "F008": {
+    "name": "Cancel an order",
+    "mode": "write",
+    "distribution_documented": false,
+    "trade_data_type": "object",
+    "required": [
+      "orderId"
+    ],
+    "example_trade_data": {
+      "orderId": "13131313131"
+    },
+    "backend": {
+      "service": "SaleOrderApiService",
+      "method": "cancelOrderHandle",
+      "path": "manage-api/src/main/java/com/op/flow/manage/api/service/SaleOrderApiService.java",
+      "line": 792
+    }
+  },
+  "F009": {
+    "name": "Update shipping information",
+    "mode": "write",
+    "distribution_documented": false,
+    "trade_data_type": "object",
+    "required": [
+      "orderId"
+    ],
+    "example_trade_data": {
+      "orderId": "13131313131",
+      "userName": "李四",
+      "userPhone": "18610081008",
+      "logisticsCompany": "SF",
+      "province": "湖南省",
+      "city": "长沙市",
+      "district": "高新区",
+      "address": "麓谷企业广场 C1 栋 108"
+    },
+    "backend": {
+      "service": "SaleApiService",
+      "method": "modifyLogisticMsg",
+      "path": "manage-api/src/main/java/com/op/flow/manage/api/service/SaleApiService.java",
+      "line": 2431
+    }
+  },
+  "F010": {
+    "name": "Query card validity",
+    "mode": "read",
+    "distribution_documented": false,
+    "trade_data_type": "object",
+    "required": [
+      "iccid"
+    ],
+    "example_trade_data": {
+      "iccid": [
+        "89860012017300000001",
+        "89860012017300000002"
+      ]
+    },
+    "backend": {
+      "service": "SaleApiService",
+      "method": "queryCardValidVersion2Point0",
+      "path": "manage-api/src/main/java/com/op/flow/manage/api/service/SaleApiService.java",
+      "line": 2454
+    }
+  },
+  "F011": {
+    "name": "Query order information",
+    "mode": "read",
+    "distribution_documented": false,
+    "trade_data_type": "object",
+    "required": [
+      "channelOrderId"
+    ],
+    "example_trade_data": {
+      "channelOrderId": "2873987483291"
+    },
+    "backend": {
+      "service": "SaleApiService",
+      "method": "queryOrderInfoVersion2Point0",
+      "path": "manage-api/src/main/java/com/op/flow/manage/api/service/SaleApiService.java",
+      "line": 2744
+    }
+  },
+  "F012": {
+    "name": "Query plan usage",
+    "mode": "read",
+    "distribution_documented": false,
+    "trade_data_type": "object",
+    "required": [
+      "iccid"
+    ],
+    "example_trade_data": {
+      "iccid": "1234567890123456789",
+      "language": "1"
+    },
+    "backend": {
+      "service": "SaleApiService",
+      "method": "queryPackagesUsedMsg",
+      "path": "manage-api/src/main/java/com/op/flow/manage/api/service/SaleApiService.java",
+      "line": 3055
+    }
+  },
+  "F013": {
+    "name": "Validate cards for top-up",
+    "mode": "read",
+    "distribution_documented": true,
+    "trade_data_type": "object",
+    "required": [
+      "iccid"
+    ],
+    "example_trade_data": {
+      "iccid": [
+        "1234567890123456789",
+        "1234567890123456790"
+      ]
+    },
+    "backend": {
+      "service": "SaleApiService",
+      "method": "queryValidateAddPackageIccids",
+      "path": "manage-api/src/main/java/com/op/flow/manage/api/service/SaleApiService.java",
+      "line": 3369
+    }
+  },
+  "F014": {
+    "name": "Query prepaid balance",
+    "mode": "read",
+    "distribution_documented": true,
+    "trade_data_type": "object",
+    "required": [],
+    "example_trade_data": {},
+    "backend": {
+      "service": "SaleApiService",
+      "method": "querySaleAccountBanance",
+      "path": "manage-api/src/main/java/com/op/flow/manage/api/service/SaleApiService.java",
+      "line": 4264
+    }
+  },
+  "F015": {
+    "name": "Query acceleration products",
+    "mode": "read",
+    "distribution_documented": false,
+    "trade_data_type": "array",
+    "required": [],
+    "example_trade_data": [
+      {
+        "orderId": "13131313131",
+        "iccid": "89860012017300000001",
+        "dayType": "0",
+        "language": "1"
+      }
+    ],
+    "backend": {
+      "service": "SaleApiService",
+      "method": "queryAccelerationPackageCommoditiesHandle",
+      "path": "manage-api/src/main/java/com/op/flow/manage/api/service/SaleApiService.java",
+      "line": 4286
+    }
+  },
+  "F016": {
+    "name": "Create an acceleration order",
+    "mode": "write",
+    "distribution_documented": false,
+    "trade_data_type": "object",
+    "required": [
+      "originalOrderId",
+      "channelOrderId",
+      "subOrderList"
+    ],
+    "example_trade_data": {
+      "originalOrderId": "13131313131",
+      "originalSaleGoodsId": "4334313123",
+      "channelOrderId": "138788765467",
+      "totalAmount": "128",
+      "discountAmount": "0",
+      "estimatedUseTime": "2017-12-12 12:12:12",
+      "comment": "",
+      "dayType": "0",
+      "subOrderList": [
+        {
+          "channelSubOrderId": "2873987483291",
+          "iccid": "89860012017300000001",
+          "skuId": "1273",
+          "settlementPrice": "25.6"
+        }
+      ]
+    },
+    "backend": {
+      "service": "SaleApiService",
+      "method": "createAccelerationOrderHandle",
+      "path": "manage-api/src/main/java/com/op/flow/manage/api/service/SaleApiService.java",
+      "line": 4339
+    }
+  },
+  "F017": {
+    "name": "Apply for after-sales service",
+    "mode": "write",
+    "distribution_documented": false,
+    "trade_data_type": "object",
+    "required": [
+      "reason"
+    ],
+    "example_trade_data": {
+      "channelOrderId": "2873987483291",
+      "channelSubOrderId": "3073987483291",
+      "reason": "20",
+      "iccid": [
+        "123",
+        "123"
+      ],
+      "unSubscribeFlow": "0",
+      "receivingState": "1",
+      "returnCardOrNot": "1",
+      "logisticsNoPerson": "1",
+      "logisticsId": "1111111111111",
+      "refundType": "1",
+      "refundAmount": "48.00",
+      "comment": ""
+    },
+    "backend": {
+      "service": "SaleApiService",
+      "method": "applyAfterSale",
+      "path": "manage-api/src/main/java/com/op/flow/manage/api/service/SaleApiService.java",
+      "line": 4410
+    }
+  },
+  "F018": {
+    "name": "Cancel an after-sales request",
+    "mode": "write",
+    "distribution_documented": false,
+    "trade_data_type": "object",
+    "required": [
+      "afterSaleId"
+    ],
+    "example_trade_data": {
+      "afterSaleId": "1517370598118598"
+    },
+    "backend": {
+      "service": "SaleApiService",
+      "method": "cancelAfterSale",
+      "path": "manage-api/src/main/java/com/op/flow/manage/api/service/SaleApiService.java",
+      "line": 4666
+    }
+  },
+  "F019": {
+    "name": "Update an after-sales request",
+    "mode": "write",
+    "distribution_documented": false,
+    "trade_data_type": "object",
+    "required": [
+      "afterSaleId"
+    ],
+    "example_trade_data": {
+      "afterSaleId": "2873987483291",
+      "unSubscribeFlow": "1",
+      "receivingState": "1",
+      "returnCardOrNot": "1",
+      "logisticsNoPerson": "1",
+      "logisticsId": "1111111111111",
+      "refundType": "1",
+      "refundAmount": "48.00",
+      "comment": ""
+    },
+    "backend": {
+      "service": "SaleApiService",
+      "method": "modifyAfterSale",
+      "path": "manage-api/src/main/java/com/op/flow/manage/api/service/SaleApiService.java",
+      "line": 4693
+    }
+  },
+  "F020": {
+    "name": "Query after-sales information",
+    "mode": "read",
+    "distribution_documented": false,
+    "trade_data_type": "object",
+    "required": [
+      "afterSaleId"
+    ],
+    "example_trade_data": {
+      "afterSaleId": "1517370598118598"
+    },
+    "backend": {
+      "service": "SaleApiService",
+      "method": "queryMessageOfAfterSale",
+      "path": "manage-api/src/main/java/com/op/flow/manage/api/service/SaleApiService.java",
+      "line": 4775
+    }
+  },
+  "F023": {
+    "name": "Query daily usage",
+    "mode": "read",
+    "distribution_documented": false,
+    "trade_data_type": "object",
+    "required": [
+      "iccid",
+      "beginDate",
+      "endDate"
+    ],
+    "example_trade_data": {
+      "channelOrderId": "138788765467",
+      "iccid": "89860012017300000001",
+      "beginDate": "2018-10-01",
+      "endDate": "2018-10-01",
+      "tzType": "1",
+      "language": "1"
+    },
+    "backend": {
+      "service": "SaleApiService",
+      "method": "dailyFlowQuery",
+      "path": "manage-api/src/main/java/com/op/flow/manage/api/service/SaleApiService.java",
+      "line": 4898
+    }
+  },
+  "F040": {
+    "name": "Create an eSIM order",
+    "mode": "write",
+    "distribution_documented": true,
+    "trade_data_type": "object",
+    "required": [
+      "channelOrderId",
+      "subOrderList"
+    ],
+    "example_trade_data": {
+      "channelOrderId": "138788765467",
+      "email": "abc@qq.com",
+      "totalAmount": "128",
+      "discountAmount": "1",
+      "subOrderList": [
+        {
+          "channelSubOrderId": "2873987483292",
+          "deviceSkuId": "1535444366670209",
+          "planSkuCopies": "1",
+          "number": "1"
+        }
+      ]
+    },
+    "backend": {
+      "service": "SaleOrderApiService",
+      "method": "createOrderHandle",
+      "path": "manage-api/src/main/java/com/op/flow/manage/api/service/SaleOrderApiService.java",
+      "line": 137
+    }
+  },
+  "F041": {
+    "name": "Resend an eSIM email",
+    "mode": "write",
+    "distribution_documented": true,
+    "trade_data_type": "object",
+    "required": [
+      "orderId",
+      "email"
+    ],
+    "example_trade_data": {
+      "orderId": "15801188888",
+      "email": "abc@qq.com"
+    },
+    "backend": {
+      "service": "SaleOrderApiService",
+      "method": "reSendESIMEmail",
+      "path": "manage-api/src/main/java/com/op/flow/manage/api/service/SaleOrderApiService.java",
+      "line": 1449
+    }
+  },
+  "F042": {
+    "name": "Query eSIM profile status",
+    "mode": "read",
+    "distribution_documented": false,
+    "trade_data_type": "object",
+    "required": [
+      "iccid"
+    ],
+    "example_trade_data": {
+      "iccid": "89860012016820003006"
+    },
+    "backend": {
+      "service": "SaleOrderApiService",
+      "method": "queryESIMProfileStatus",
+      "path": "manage-api/src/main/java/com/op/flow/manage/api/service/SaleOrderApiService.java",
+      "line": 1492
+    }
+  },
+  "F045": {
+    "name": "End an activated plan",
+    "mode": "write",
+    "distribution_documented": true,
+    "trade_data_type": "object",
+    "required": [
+      "orderId",
+      "subOrderId",
+      "iccid"
+    ],
+    "example_trade_data": {
+      "orderId": "2683536856139402",
+      "subOrderId": "1683536856470403",
+      "iccid": "89860012018390075038"
+    },
+    "backend": {
+      "service": "SaleOrderApiService",
+      "method": "manuallyEndingPackage",
+      "path": "manage-api/src/main/java/com/op/flow/manage/api/service/SaleOrderApiService.java",
+      "line": 1549
+    }
+  },
+  "F046": {
+    "name": "Query plan usage by order and card",
+    "mode": "read",
+    "distribution_documented": true,
+    "trade_data_type": "object",
+    "required": [
+      "iccid"
+    ],
+    "example_trade_data": {
+      "orderId": "2684910712887645",
+      "channelOrderId": "71186072946800",
+      "iccid": "89860012018880000641",
+      "language": "2"
+    },
+    "backend": {
+      "service": "SaleApiService",
+      "method": "queryPackagesUsageInfo",
+      "path": "manage-api/src/main/java/com/op/flow/manage/api/service/SaleApiService.java",
+      "line": 5295
+    }
+  },
+  "F051": {
+    "name": "Get pickup points by product ID",
+    "mode": "read",
+    "distribution_documented": false,
+    "trade_data_type": "object",
+    "required": [
+      "skuIds"
+    ],
+    "example_trade_data": {
+      "skuIds": [
+        "132342909036",
+        "132346328450"
+      ]
+    },
+    "backend": {
+      "service": "SaleApiService",
+      "method": "querySelfPickPointBySku",
+      "path": "manage-api/src/main/java/com/op/flow/manage/api/service/SaleApiService.java",
+      "line": 5683
+    }
+  },
+  "F052": {
+    "name": "Query eSIM top-up products",
+    "mode": "read",
+    "distribution_documented": true,
+    "trade_data_type": "object",
+    "required": [
+      "iccid"
+    ],
+    "example_trade_data": {
+      "iccid": "89812003916820397415"
+    },
+    "backend": {
+      "service": "SaleApiService",
+      "method": "queryESIMRechargeGoods",
+      "path": "manage-api/src/main/java/com/op/flow/manage/api/service/SaleApiService.java",
+      "line": 5709
+    }
+  },
+  "F054": {
+    "name": "Query identity verification status",
+    "mode": "read",
+    "distribution_documented": false,
+    "trade_data_type": "object",
+    "required": [
+      "iccid"
+    ],
+    "example_trade_data": {
+      "iccid": "89812003916820397415"
+    },
+    "backend": {
+      "service": "SaleOrderApiService",
+      "method": "queryRealNameStatus",
+      "path": "manage-api/src/main/java/com/op/flow/manage/api/service/SaleOrderApiService.java",
+      "line": 1691
+    }
+  },
+  "F056": {
+    "name": "Query all acceleration products",
+    "mode": "read",
+    "distribution_documented": false,
+    "trade_data_type": "object",
+    "required": [],
+    "example_trade_data": {
+      "language": "1"
+    },
+    "backend": {
+      "service": "SaleOrderApiService",
+      "method": "queryAllAccelerationPackageCommodities",
+      "path": "manage-api/src/main/java/com/op/flow/manage/api/service/SaleOrderApiService.java",
+      "line": 1734
+    }
+  },
+  "F059": {
+    "name": "Query data booster products",
+    "mode": "read",
+    "distribution_documented": false,
+    "trade_data_type": "object",
+    "required": [],
+    "example_trade_data": {
+      "language": "zh"
+    },
+    "backend": {
+      "service": "SaleApiService",
+      "method": "queryBoosterPackageGoodsHandle",
+      "path": "manage-api/src/main/java/com/op/flow/manage/api/service/SaleApiService.java",
+      "line": 6266
+    }
+  },
+  "F060": {
+    "name": "Query rechargeable eSIM product series",
+    "mode": "read",
+    "distribution_documented": false,
+    "trade_data_type": "object",
+    "required": [],
+    "example_trade_data": {},
+    "backend": {
+      "service": "SaleApiService",
+      "method": "queryResourceSeriesCarrierFee",
+      "path": "manage-api/src/main/java/com/op/flow/manage/api/service/SaleApiService.java",
+      "line": 6241
+    }
+  },
+  "F061": {
+    "name": "Create a data booster order",
+    "mode": "write",
+    "distribution_documented": false,
+    "trade_data_type": "object",
+    "required": [
+      "originalOrderId",
+      "skuId",
+      "channelOrderId"
+    ],
+    "example_trade_data": {
+      "originalOrderId": "3779792516356832",
+      "iccid": "89860012017300000001",
+      "skuId": "BPG_DEMO_001",
+      "stackDataType": 1,
+      "channelOrderId": "CHANNEL_ORDER_20260529_001"
+    },
+    "backend": {
+      "service": "SaleApiService",
+      "method": "createBoosterPackageOrderHandle",
+      "path": "manage-api/src/main/java/com/op/flow/manage/api/service/SaleApiService.java",
+      "line": 6324
+    }
+  }
+}
